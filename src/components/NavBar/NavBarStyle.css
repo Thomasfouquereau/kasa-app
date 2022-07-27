@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 100px;
+}
+
+.navbar-logo {
+    height: 68px;
+    width: 210.32154846191406px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.name-links {
+    color: #FF6060;
+    font-size: 24px;
+    font-weight: 500;
+    margin-left:50px ;
+}
+
+@media screen and (max-width: 425px){
+
+    .navbar {
+        margin: 20px 5%;
+    }
+
+    .navbar-logo {
+        height: 39.44px;
+        width: 122px;
+    }
+
+    .name-links{
+        font-size: 12px;
+        margin-left:20px ;
+    }
+
+}
+    
