@@ -37,18 +37,18 @@
 }
 
 @media screen and (max-width: 425px) {
-    
-    .A-Propos-contents{
+
+    .A-Propos-contents {
         margin-bottom: 30%;
     }
-    
+
     .box {
         width: 93%;
     }
 
-    .title-box{
+    .title-box {
         font-size: 19px;
         font-weight: 500;
     }
-    
+
 }

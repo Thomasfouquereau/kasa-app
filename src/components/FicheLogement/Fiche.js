@@ -1,17 +1,17 @@
 import React from "react";
-import data from '../../data/data.json'
+import {useParams} from "react-router-dom";
+import './FicheLogementStyle.css'
 
-let params = (new URL(document.location)).searchParams;
-let id = params.get('id');
-console.log(id);
+export default function Fiche(props) {
 
-export default function Fiche() {
-   
+    const {id} = useParams()
+    console.log(id)
+
     return (
-        <body>
+        <main>
             <div className="container-fiche">
                 {
-                    data && data.map((item, index) => {
+                    props.locations && props.locations.map((item, index) => {
 
                         return (
                             <div className="card-fiche" key={index.id}>
@@ -36,7 +36,18 @@ export default function Fiche() {
                                             )
                                         }
                                     </div>
-                                        
+
+                                    {/* {
+                                        item && item.host.map((item, index) => {
+                                            return (
+                                                <div className="card-fiche-host" key={index.id}>
+                                                    <img className="card-fiche-host-img" src={item.picture} alt="logo" />
+                                                    <span className="card-fiche-host-name">{item.name}</span>
+                                                </div>
+                                            )
+                                        }
+                                        )
+                                    } */}
 
                                 </div>
                             </div>
@@ -44,7 +55,8 @@ export default function Fiche() {
                     }
                     )
                 }
+
             </div>
-        </body>
+        </main>
     );
 }

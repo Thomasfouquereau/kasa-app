@@ -10,18 +10,19 @@
     width: 210.32154846191406px;
 }
 
-a{
+a {
     text-decoration: none;
+    margin-bottom: 0%;
 }
 
 .name-links {
     color: #FF6060;
     font-size: 24px;
     font-weight: 500;
-    margin-left:50px ;
+    margin-left: 50px;
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 425px) {
 
     .navbar {
         margin: 20px 5%;
@@ -32,10 +33,9 @@ a{
         width: 122px;
     }
 
-    .name-links{
+    .name-links {
         font-size: 12px;
-        margin-left:20px ;
+        margin-left: 20px;
     }
 
 }
-    
