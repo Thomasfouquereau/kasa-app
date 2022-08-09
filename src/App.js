@@ -6,17 +6,16 @@ import Error404 from './components/Error/Error404';
 import NavBar from './components/NavBar/NavBar';
 import APropos from './components/APropos/APropos';
 import Footer from './components/Footer/Footer';
-import React, {useState, useEffect} from 'react'
-//import FetchData from './FetchData';
+import React, { useState, useEffect } from 'react'
 
 function App() {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-      fetch("/data.json")
+    fetch("/data.json")
       .then((resp) => resp.json())
-      .then(data => setLocations(data) )
-  },[]);
+      .then(data => setLocations(data))
+  }, []);
 
   return (
     <div className="App">
