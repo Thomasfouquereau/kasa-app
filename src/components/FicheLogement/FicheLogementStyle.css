@@ -1,0 +1,129 @@
+.card-fiche-carrousel {
+    width: 92%;
+    height: 715px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.card-fiche-carrousel-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.card-fiche-carrousel-button-left,
+.card-fiche-carrousel-button-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.card-fiche-carrousel-button-right {
+    right: 23px;
+}
+
+.card-fiche-carrousel-button-left {
+    left: 13px;
+}
+
+.card-fiche-info-host {
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: 30px auto;
+}
+
+.card-fiche-info-tag {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-fiche-title {
+    font-size: 36px;
+    color: #FF6060;
+    font-weight: 500;
+}
+
+.card-fiche-host-description {
+    font-size: 18px;
+    color: #FF6060;
+    font-weight: 500;
+}
+
+.card-fiche-tag {
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+    background-color: #FF6060;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.card-fiche-host {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.card-fiche-host-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.card-fiche-host-name {
+    font-size: 18px;
+    color: #FF6060;
+    font-weight: 500;
+}
+
+.card-fiche-description-equipements {
+    width: 92%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 30px auto;
+}
+
+.card-fiche-description,
+.card-fiche-equipements {
+    width: 40%;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+}
+
+
+
+.card-fiche-equipements-button,
+.card-fiche-description-button {
+    width: 100%;
+    height: 50px;
+    background-color: #FF6060;
+    border: none;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: start;
+    text-transform: capitalize;
+    padding-left: 20px;
+}
+
+.card-fiche-equipements-text,
+.card-fiche-description-text {
+    font-size: 18px;
+    color: #FF6060;
+    font-weight: 400;
+    margin: 20px;
+}
+
+.card-fiche-equipements-text {
+    flex-direction: column;
+}
