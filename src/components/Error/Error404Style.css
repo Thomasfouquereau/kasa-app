@@ -30,6 +30,8 @@ a {
     margin-bottom: 100px;
 }
 
+/*style pour mobile*/
+
 @media screen and (max-width: 425px) {
     .error-404 {
         font-size: 96px;

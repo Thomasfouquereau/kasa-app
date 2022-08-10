@@ -1,3 +1,4 @@
+/* carrousel */
 .card-fiche-carrousel {
     width: 92%;
     height: 715px;
@@ -31,6 +32,8 @@
 .card-fiche-carrousel-button-left {
     left: 13px;
 }
+
+/* info host */
 
 .card-fiche-info-host {
     display: flex;
@@ -129,7 +132,11 @@
     flex-direction: column;
 }
 
+/* style pour mobile */
+
 @media screen and (max-width: 425px) {
+
+    /* carrousel */
 
     .card-fiche-carrousel {
         height: 255px;
@@ -140,6 +147,8 @@
         width: 16px;
         height: 24px;
     }
+
+    /* info host */
 
     .card-fiche-info-host {
         flex-direction: column;
@@ -177,7 +186,8 @@
         font-size: 14px;
     }
 
-    .card-fiche-equipements-text, .card-fiche-description-text{
+    .card-fiche-equipements-text,
+    .card-fiche-description-text {
         font-size: 12px;
     }
 

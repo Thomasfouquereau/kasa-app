@@ -19,6 +19,7 @@
 }
 
 @media screen and (max-width: 425px){
+    
     .footer{
         height: 209px;
         background-color: #000000;
@@ -32,4 +33,3 @@
         font-size: 12px;
     }
 }
-    

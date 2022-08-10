@@ -13,6 +13,7 @@ export default function Home(props) {
             </header>
             <main>
                 <div className="container-home">
+                    {/* recuperation des locations "images et titres" */}
                     {
                         props.locations && props.locations.map((item, index) => {
                             return (

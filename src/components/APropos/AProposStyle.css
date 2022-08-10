@@ -1,3 +1,5 @@
+/*a-propos*/
+
 .A-Propos-contents {
     display: flex;
     flex-direction: column;
@@ -35,6 +37,8 @@
     padding: 20px 30px;
     transform: translateY(-15px);
 }
+
+/*style pour mobile*/
 
 @media screen and (max-width: 425px) {
 
