@@ -88,17 +88,18 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    margin: 30px auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 .card-fiche-description,
 .card-fiche-equipements {
-    width: 40%;
+    width: 45%;
     background-color: #F7F7F7;
     border-radius: 10px;
 }
-
-
 
 .card-fiche-equipements-button,
 .card-fiche-description-button {
@@ -126,4 +127,75 @@
 
 .card-fiche-equipements-text {
     flex-direction: column;
+}
+
+@media screen and (max-width: 425px) {
+
+    .card-fiche-carrousel {
+        height: 255px;
+    }
+
+    .left-arrow,
+    .right-arrow {
+        width: 16px;
+        height: 24px;
+    }
+
+    .card-fiche-info-host {
+        flex-direction: column;
+    }
+
+    .card-fiche-title {
+        font-size: 18px;
+    }
+
+    .card-fiche-description {
+        font-size: 14px;
+    }
+
+    .card-fiche-tag {
+        font-size: 10px;
+    }
+
+    .card-fiche-host-name {
+        font-size: 12px;
+    }
+
+    .card-fiche-host-img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .card-fiche-rating-star {
+        width: 16px;
+        height: 16px;
+    }
+
+    .card-fiche-equipements-button,
+    .card-fiche-description-button {
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .card-fiche-equipements-text, .card-fiche-description-text{
+        font-size: 12px;
+    }
+
+    .card-fiche-host-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .card-fiche-description-equipements {
+        flex-direction: column;
+    }
+
+    .card-fiche-description,
+    .card-fiche-equipements {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
