@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './FicheLogementStyle.css'
 
 export default function Fiche(props) {
 
     const { id } = useParams()
+    const navigate = useNavigate()
     const location = props.locations.find(item => item.id === id)
     const [currImg, setCurrImg] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
-
+    const [isOpenDescription, setIsOpenDescription] = useState(false);
+    const [isOpenEquipements, setIsOpenEquipements] = useState(false);
+    if (!location) {
+        navigate("/404")
+        return null
+    }
     return (
         <main>
             <div className="container-fiche">
@@ -31,7 +36,9 @@ export default function Fiche(props) {
                                 <p className="card-fiche-host-description">{location.location}</p>
                             </div>
                             <div className="card-fiche-tags">
+
                                 {/* recuperation des tags */}
+                                
                                 {
                                     location.tags.map((item, index) => {
                                         return (
@@ -52,13 +59,22 @@ export default function Fiche(props) {
 
                             <div className="card-fiche-rating-stars">
                                 {
-                                    Array(location.rating).fill(0).map((item, index) => {
-                                        return (
-                                            <img className="card-fiche-rating-star" key={index} src={process.env.PUBLIC_URL + '/star.svg'} alt="logo" />
-                                        )
+                                    Array(location.rating).map((item, index) => {
+                                        for (let i = 0; i < item; i++) {
+                                            return  (
+                                                <img className="card-fiche-rating-star" src={process.env.PUBLIC_URL + '/star.svg'} alt="logo" />
+                                            )
+                                        }
+                                        if (item < 5){
+                                            return (
+                                                <img className="card-fiche-rating-star" src={process.env.PUBLIC_URL + '/starEmpty.svg'} alt="logo" />
+                                            )
+                                        }
+                                        return null 
                                     }
                                     )
                                 }
+                                
                             </div>
                         </div>
                     </div>
@@ -67,12 +83,12 @@ export default function Fiche(props) {
 
                     <div className="card-fiche-description-equipements">
                         <div className="card-fiche-description">
-                            <button className="card-fiche-description-button" onClick={() => setIsOpen(!isOpen)}>description</button>
-                            <p className="card-fiche-description-text" style={{ display: isOpen ? "block" : "none" }}>{location.description}</p>
+                            <button className="card-fiche-description-button" onClick={() => setIsOpenDescription(!isOpenDescription)}>description</button>
+                            <p className="card-fiche-description-text" style={{ display: isOpenDescription ? "block" : "none" }}>{location.description}</p>
                         </div>
                         <div className="card-fiche-equipements">
-                            <button className="card-fiche-equipements-button" onClick={() => setIsOpen(!isOpen)}>equipements</button>
-                            <div className="card-fiche-equipements-text" style={{ display: isOpen ? "flex" : "none" }}>{location.equipments}</div>
+                            <button className="card-fiche-equipements-button" onClick={() => setIsOpenEquipements(!isOpenEquipements)}>equipements</button>
+                            <div className="card-fiche-equipements-text" style={{ display: isOpenEquipements ? "flex" : "none" }}>{location.equipments}</div>
                         </div>
                     </div>
                 </div>
