@@ -1,30 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import './FicheLogementStyle.css'
+import RatingStar from "./ratingStar";
+import DropDown from "../DropDown/DropDown"
+import RightArrow from "./rightArrow.svg"
+import LeftArrow from "./leftArrow.svg"
 
 export default function Fiche(props) {
-
     const { id } = useParams()
     const navigate = useNavigate()
     const location = props.locations.find(item => item.id === id)
     const [currImg, setCurrImg] = useState(0);
-    const [isOpenDescription, setIsOpenDescription] = useState(false);
-    const [isOpenEquipements, setIsOpenEquipements] = useState(false);
+   
+    useEffect(() => {
+        if (props.locations.length > 0) {
+            if (!location) {
+              
+                navigate("/404")
+            }
+        }
+        
+    },[props.locations, navigate, location])
+
     if (!location) {
-        navigate("/404")
         return null
     }
+
+    // <Carrousel pictures={['img.jpg', 'test.png']} />
+
+    function PreviousImg() {
+        if ( (currImg - 1) < 0) return  setCurrImg(location.pictures.length - 1)
+           return  setCurrImg(currImg - 1)
+    }
+    function NextImg() {
+        if ( (currImg + 1) < location.pictures.length) return  setCurrImg(location.pictures.length - 1)
+           return  setCurrImg(currImg - 1)
+    }
+    
     return (
         <main>
             <div className="container-fiche">
-                <div className="card-fiche" key={location.id}>
+                <div className="card-fiche">
 
                     {/* carrousel de photos */}
 
                     <div className="card-fiche-carrousel">
-                        <button className="card-fiche-carrousel-button-left" onClick={() => { setCurrImg(currImg - 1) }}><img className="left-arrow" src={process.env.PUBLIC_URL + '/leftArrow.svg'} alt="logo" /></button>
+                        <button className="card-fiche-carrousel-button-left" onClick={PreviousImg}><img className="left-arrow" src={LeftArrow} alt="logo" /></button>
                         <img className="card-fiche-carrousel-img" src={location.pictures[currImg]} alt="logo" />
-                        <button className="card-fiche-carrousel-button-right" onClick={() => { setCurrImg(currImg + 1) }}><img className="right-arrow" src={process.env.PUBLIC_URL + '/rightArrow.svg'} alt="logo" /></button>
+                        <button className="card-fiche-carrousel-button-right" onClick={NextImg}><img className="right-arrow" src={RightArrow} alt="logo" /></button>
                     </div>
 
                     {/* info du logement et du host */}
@@ -38,7 +61,7 @@ export default function Fiche(props) {
                             <div className="card-fiche-tags">
 
                                 {/* recuperation des tags */}
-                                
+
                                 {
                                     location.tags.map((item, index) => {
                                         return (
@@ -58,23 +81,9 @@ export default function Fiche(props) {
                             {/* notations du logement */}
 
                             <div className="card-fiche-rating-stars">
-                                {
-                                    Array(location.rating).map((item, index) => {
-                                        for (let i = 0; i < item; i++) {
-                                            return  (
-                                                <img className="card-fiche-rating-star" src={process.env.PUBLIC_URL + '/star.svg'} alt="logo" />
-                                            )
-                                        }
-                                        if (item < 5){
-                                            return (
-                                                <img className="card-fiche-rating-star" src={process.env.PUBLIC_URL + '/starEmpty.svg'} alt="logo" />
-                                            )
-                                        }
-                                        return null 
-                                    }
-                                    )
-                                }
-                                
+
+                                <RatingStar rating={location.rating} />
+
                             </div>
                         </div>
                     </div>
@@ -83,17 +92,29 @@ export default function Fiche(props) {
 
                     <div className="card-fiche-description-equipements">
                         <div className="card-fiche-description">
-                            <button className="card-fiche-description-button" onClick={() => setIsOpenDescription(!isOpenDescription)}>description</button>
-                            <p className="card-fiche-description-text" style={{ display: isOpenDescription ? "block" : "none" }}>{location.description}</p>
+                            <DropDown title='Description'>
+                                <p className="card-fiche-description-text">{location.description}</p>
+                            </DropDown>
                         </div>
                         <div className="card-fiche-equipements">
-                            <button className="card-fiche-equipements-button" onClick={() => setIsOpenEquipements(!isOpenEquipements)}>equipements</button>
-                            <div className="card-fiche-equipements-text" style={{ display: isOpenEquipements ? "flex" : "none" }}>{location.equipments}</div>
+                            <div className="card-fiche-equipements-text">
+                                <DropDown title='Equipments'>
+                                    <ul>
+                                        {
+                                            location.equipments.map((item, index) => {
+                                                return (
+                                                    <li key={index}>{item}</li>
+                                                )
+                                            }
+                                            )
+                                        }
+                                    </ul>
+                                </DropDown>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main >
     );
-
 }

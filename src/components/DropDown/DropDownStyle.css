@@ -1,0 +1,137 @@
+.box {
+    margin-top: 30px;
+    width: 90%;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+}
+
+.btn-box {
+    width: 100%;
+    display: flex;
+    background-color: #FF6060;
+    border: none;
+    color: #fff;
+    padding: 13px 20px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow{
+    transform: rotate(180deg);
+}
+
+.arrow-active {
+    transform: rotate(0deg);
+}
+
+.description-box {
+    background-color: #F6F6F6;
+    color: #FF6060;
+    padding: 20px 30px 0px 30px;
+    transform: translateY(-15px);
+}
+
+.card-fiche-description-equipements {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.card-fiche-description,
+.card-fiche-equipements {
+    border-radius: 10px;
+    width: 47%;
+}
+
+.card-fiche-equipements-button,
+.card-fiche-description-button {
+    height: 50px;
+    background-color: #FF6060;
+    border: none;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: start;
+    text-transform: capitalize;
+    padding-left: 20px;
+}
+
+.card-fiche-equipements-text,
+.card-fiche-description-text {
+    font-size: 18px;
+    color: #FF6060;
+    font-weight: 400;
+    margin-left: 20px;
+
+}
+
+li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .title-box {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .title-box {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    .box {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+   
+    .title-box {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .card-fiche-equipements-text,
+    .card-fiche-description-text {
+        margin-left: 0px;
+    }
+
+    .card-fiche-description,
+    .card-fiche-equipements {
+        border-radius: 10px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .card-fiche-description-text {
+        font-size: 12px;
+        margin-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .card-fiche-equipements-text {
+        font-size: 12px;
+    }
+
+    ul {
+        padding-bottom: 10px;
+    }
+
+}

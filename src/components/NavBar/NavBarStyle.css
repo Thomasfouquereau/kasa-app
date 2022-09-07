@@ -24,6 +24,18 @@ a {
 
 /*style pour mobile*/
 
+@media screen and (max-width: 650px) {
+    .name-links {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    .navbar {
+        margin: 50px 30px;
+    }
+
+}
+
 @media screen and (max-width: 425px) {
 
     .navbar {
