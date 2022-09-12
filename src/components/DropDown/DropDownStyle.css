@@ -70,6 +70,8 @@
     color: #FF6060;
     font-weight: 400;
     margin-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 
 }
 
@@ -98,10 +100,11 @@ ul {
 @media screen and (max-width: 425px) {
 
     .box {
-        width: 100%;
+        width: 90%;
         margin-top: 5px;
         margin-bottom: 20px;
     }
+
    
     .title-box {
         font-size: 13px;

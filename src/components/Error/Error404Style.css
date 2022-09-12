@@ -35,6 +35,15 @@ a {
 
 /*style pour mobile*/
 
+@media screen and (max-width: 950px) {
+    .error-404{
+        font-size: 200px;
+    }
+    .description-error{
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 425px) {
     .error-404 {
         font-size: 96px;
