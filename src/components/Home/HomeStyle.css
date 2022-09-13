@@ -87,6 +87,8 @@
         width: 92%;
     }
 
+   
+
 }
 
 @media screen and (max-width: 425px) {
@@ -122,6 +124,10 @@
         font-size: 12px;
         bottom: 10px;
         left: 10px;
+    }
+
+    .card-home-img {
+        width: 90%;
     }
 
 }
