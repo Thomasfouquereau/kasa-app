@@ -11,32 +11,37 @@ export default function Fiche(props) {
     const navigate = useNavigate()
     const location = props.locations.find(item => item.id === id)
     const [currImg, setCurrImg] = useState(0);
-   
+
     useEffect(() => {
         if (props.locations.length > 0) {
             if (!location) {
-              
+
                 navigate("/404")
             }
         }
-        
-    },[props.locations, navigate, location])
+
+    }, [props.locations, navigate, location])
 
     if (!location) {
         return null
     }
 
-    // <Carrousel pictures={['img.jpg', 'test.png']} />
-
     function PreviousImg() {
-        if ( (currImg - 1) < 0) return  setCurrImg(location.pictures.length - 1)
-           return  setCurrImg(currImg - 1)
+        if ((currImg - 1) < 0) return setCurrImg(location.pictures.length - 1)
+        return setCurrImg(currImg - 1)
     }
     function NextImg() {
-        if ( (currImg + 1) < location.pictures.length) return  setCurrImg(location.pictures.length - 1)
-           return  setCurrImg(currImg - 1)
+        if ((currImg + 1) < location.pictures.length) return setCurrImg(location.pictures.length - 1)
+        return setCurrImg(currImg - 1)
     }
-    
+
+    function HideArrow() {
+        if (location.pictures.length === 1)
+            return "none"
+    }
+
+    console.log(HideArrow)
+
     return (
         <main>
             <div className="container-fiche">
@@ -45,9 +50,9 @@ export default function Fiche(props) {
                     {/* carrousel de photos */}
 
                     <div className="card-fiche-carrousel">
-                        <button className="card-fiche-carrousel-button-left" onClick={PreviousImg}><img className="left-arrow" src={LeftArrow} alt="logo" /></button>
+                        <button className="card-fiche-carrousel-button-left" style={{ display: HideArrow()}} onClick={PreviousImg}><img className="left-arrow" src={LeftArrow} alt="logo" /></button>
                         <img className="card-fiche-carrousel-img" src={location.pictures[currImg]} alt="logo" />
-                        <button className="card-fiche-carrousel-button-right" onClick={NextImg}><img className="right-arrow" src={RightArrow} alt="logo" /></button>
+                        <button className="card-fiche-carrousel-button-right" style={{ display: HideArrow() }} onClick={NextImg}><img className="right-arrow" src={RightArrow} alt="logo" /></button>
                     </div>
 
                     {/* info du logement et du host */}
