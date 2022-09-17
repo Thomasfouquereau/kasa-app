@@ -31,7 +31,7 @@ export default function Fiche(props) {
         return setCurrImg(currImg - 1)
     }
     function NextImg() {
-        if ((currImg + 1) < location.pictures.length) return setCurrImg(location.pictures.length - 1)
+        if ((currImg + 1) < +2) return setCurrImg(location.pictures.length - 1)
         return setCurrImg(currImg - 1)
     }
 
