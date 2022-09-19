@@ -7,6 +7,7 @@ import RightArrow from "./rightArrow.svg"
 import LeftArrow from "./leftArrow.svg"
 
 export default function Fiche(props) {
+
     const { id } = useParams()
     const navigate = useNavigate()
     const location = props.locations.find(item => item.id === id)
@@ -15,7 +16,6 @@ export default function Fiche(props) {
     useEffect(() => {
         if (props.locations.length > 0) {
             if (!location) {
-
                 navigate("/404")
             }
         }
@@ -30,9 +30,10 @@ export default function Fiche(props) {
         if ((currImg - 1) < 0) return setCurrImg(location.pictures.length - 1)
         return setCurrImg(currImg - 1)
     }
+
     function NextImg() {
-        if ((currImg + 1) < +2) return setCurrImg(location.pictures.length - 1)
-        return setCurrImg(currImg - 1)
+        if ((currImg + 1) === location.pictures.length) return setCurrImg(0)
+        return setCurrImg(currImg + 1)
     }
 
     function HideArrow() {
